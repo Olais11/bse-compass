@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head ties shared assets together -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact · BSE Compass</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Global navigation -->
+    <header class="site-header">
+      <a class="logo" href="index.html">BSE Compass</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Contact hero -->
+      <section class="contact-hero">
+        <h1>Let’s Build Your Learning Journey Together</h1>
+        <p>
+          Reach out if you want help interpreting your quiz result, embedding it into your
+          Learning Journey Plan, or even extending this advisor for future BSE cohorts.
+        </p>
+      </section>
+
+      <section class="contact-grid">
+        <!-- Contact info -->
+        <article>
+          <h2>Contact Details</h2>
+          <ul class="contact-list">
+            <li><strong>Created by:</strong> Olais Julius Laizer</li>
+            <li><strong>Email:</strong> <a href="mailto:bse.compass@example.com">j.laizer@alustudent.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Olais11" target="_blank" rel="noopener">github.com/Olais11</a></li>
+          </ul>
+        </article>
+
+        <!-- Contact form -->
+        <article>
+          <h2>Send a Message</h2>
+          <form class="contact-form">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="contactName" type="text" required />
+
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="contactEmail" type="email" required />
+
+            <label for="contact-type">Topic</label>
+            <select id="contact-type" name="contactType" required>
+              <option value="">Choose one</option>
+              <option value="result">Discuss my quiz result</option>
+              <option value="ljp">Help with Learning Journey Plan</option>
+              <option value="extend">Collaborate on new features</option>
+            </select>
+
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="contactMessage" rows="4" required></textarea>
+
+            <label class="consent">
+              <input type="checkbox" id="contact-consent" required />
+              I agree to be contacted about future BSE resources.
+            </label>
+
+            <button class="btn secondary" type="submit">Send</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 BSE Compass Advisor · Designed for the BSE Cohort</p>
+    </footer>
+  </body>
+</html>
