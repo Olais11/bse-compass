@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head block wires shared stylesheet and script -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specialisation Quiz · BSE Compass</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Shared navigation -->
+    <header class="site-header">
+      <a class="logo" href="index.html">BSE Compass</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html" class="active">Quiz</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Quiz intro explains flow and validation -->
+      <section class="quiz-intro">
+        <h1>Discover Your BSE Specialisation</h1>
+        <p>
+          Complete every question so we can balance the four pathways fairly. Answers feed into a
+          scoring model that highlights your strongest match plus tailored next steps.
+        </p>
+      </section>
+
+      <!-- Quiz form contains nine scored questions -->
+      <form id="quiz-form" class="quiz-card">
+        <fieldset>
+          <legend>First things first</legend>
+          <label for="student-name">Preferred name</label>
+          <input
+            id="student-name"
+            name="studentName"
+            type="text"
+            placeholder="e.g. Moikan, Laizer, Julius"
+            pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\\s'-]{2,40}$"
+            required
+          />
+          <small>Only letters/apostrophes allowed so we can greet you properly.</small>
+          <label for="student-mail">Student email</label>
+          <input
+            id="student-mail"
+            name="studentEmail"
+            type="email"
+            placeholder="username@alustudent.com"
+            required
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>1. Your coding joy</legend>
+          <p>Which scenario sounds most satisfying?</p>
+          <label><input type="radio" name="q1" value="low_level" required /> Rewriting a driver so hardware sings</label>
+          <label><input type="radio" name="q1" value="ar_vr" /> Crafting an immersive prototype for users</label>
+          <label><input type="radio" name="q1" value="full_stack" /> Shipping an end-to-end feature in record time</label>
+          <label><input type="radio" name="q1" value="ml" /> Tuning a model until predictions pop</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Preferred build arena</legend>
+          <p>Pick the environment you could spend hours in.</p>
+          <select name="q2" required>
+            <option value="">Select one</option>
+            <option value="low_level">Microcontroller lab with oscilloscopes</option>
+            <option value="ar_vr">Motion-capture studio with headsets</option>
+            <option value="full_stack">DevOps space with dashboards and CI</option>
+            <option value="ml">Data war-room full of notebooks and GPUs</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Activities that energise you</legend>
+          <p>Choose up to two.</p>
+          <div class="checkbox-grid">
+            <label>
+              <input type="checkbox" name="q3" value="low_level" /> Profiling memory and CPU caches
+            </label>
+            <label>
+              <input type="checkbox" name="q3" value="ar_vr" /> Designing storyboards for immersive scenes
+            </label>
+            <label>
+              <input type="checkbox" name="q3" value="full_stack" /> Coordinating APIs, databases, and UI changes
+            </label>
+            <label>
+              <input type="checkbox" name="q3" value="ml" /> Cleaning messy datasets and engineering features
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Spectrum between immersive vs hardware focus</legend>
+          <p>0 = fully immersive experiences, 10 = hardware-close optimisations.</p>
+          <input type="range" id="q4" name="q4" min="0" max="10" value="5" />
+          <output id="q4-output">5</output>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. Kickoff instinct</legend>
+          <p>When scoping a new brief, you first...</p>
+          <label><input type="radio" name="q5" value="full_stack" required /> Map the end-to-end architecture</label>
+          <label><input type="radio" name="q5" value="ar_vr" /> Sketch how people will interact with it</label>
+          <label><input type="radio" name="q5" value="ml" /> Hunt for datasets and measurable signals</label>
+          <label><input type="radio" name="q5" value="low_level" /> Check constraints of the underlying systems</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>6. Stats comfort</legend>
+          <p>Rate your comfort with probability & linear algebra (1–5).</p>
+          <input type="number" name="q6" min="1" max="5" required />
+        </fieldset>
+
+        <fieldset>
+          <legend>7. Your natural team role</legend>
+          <p>Pick the role teammates rely on you for.</p>
+          <label><input type="radio" name="q7" value="ml" required /> Insight translator (data to decisions)</label>
+          <label><input type="radio" name="q7" value="full_stack" /> Glue engineer (connects layers quickly)</label>
+          <label><input type="radio" name="q7" value="ar_vr" /> Experience shaper (keeps humans central)</label>
+          <label><input type="radio" name="q7" value="low_level" /> Systems guardian (protects reliability)</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>8. Sprint focus</legend>
+          <p>Select the focus you would champion for a week-long sprint.</p>
+          <select name="q8" required>
+            <option value="">Select focus</option>
+            <option value="ar_vr">Rapid user testing with sensory feedback</option>
+            <option value="full_stack">Improve deployment pipeline and observability</option>
+            <option value="low_level">Reduce latency by rewriting critical routines</option>
+            <option value="ml">Experiment with transformers on campus datasets</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>9. Inspirational trailblazer</legend>
+          <p>Type or choose a technologist you admire.</p>
+          <input
+            list="trailblazers"
+            name="q9"
+            placeholder="Start typing to see suggestions"
+            required
+            pattern="^(Ada Lovelace|Palmer Luckey|Margaret Hamilton|Fei-Fei Li)$"
+          />
+          <datalist id="trailblazers">
+            <option value="Ada Lovelace"></option>
+            <option value="Palmer Luckey"></option>
+            <option value="Margaret Hamilton"></option>
+            <option value="Fei-Fei Li"></option>
+          </datalist>
+          <small>Pick from the list so we can map it to a pathway.</small>
+        </fieldset>
+
+        <button class="btn primary" type="submit">Show My Match</button>
+      </form>
+
+      <!-- Result panel is populated by JavaScript -->
+      <section id="results" class="results-panel" hidden>
+        <h2 id="result-title">Your ideal track appears here</h2>
+        <p id="result-reason"></p>
+        <div class="result-columns">
+          <article>
+            <h3>Next Steps</h3>
+            <ul id="result-actions"></ul>
+          </article>
+          <article>
+            <h3>Momentum Meter</h3>
+            <p id="momentum-meter">0% focus alignment</p>
+            <div class="progress-ring">
+              <div class="progress-fill"></div>
+            </div>
+          </article>
+        </div>
+        <div class="resource-card">
+          <h3 id="resource-title">Resource Spotlight</h3>
+          <p id="resource-body">We will recommend a lab, club, or challenge for your track.</p>
+          <a id="resource-link" href="#" target="_blank" rel="noopener">Open Resource</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 BSE Compass Advisor · Designed for the BSE Cohort</p>
+    </footer>
+  </body>
+</html>
